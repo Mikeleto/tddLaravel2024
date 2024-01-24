@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Profession;
+use App\Sortable;
 
 class ProfessionController extends Controller
 {
-    public function index()
+    public function index(Sortable $sortable)
     {
+        
         return view('professions.index', [
             'professions' => Profession::withCount('profiles')->orderBy('title')->get(),
+            'sortable' => $sortable,
         ]);
     }
 
