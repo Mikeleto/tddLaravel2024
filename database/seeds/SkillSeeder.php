@@ -18,5 +18,7 @@ class SkillSeeder extends Seeder
         factory(\App\Skill::class)->create(['name' => 'SQL']);
         factory(\App\Skill::class)->create(['name' => 'POO']);
         factory(\App\Skill::class)->create(['name' => 'TDD']);
+
+        factory(App\Skill::class, 10)->create();
     }
 }

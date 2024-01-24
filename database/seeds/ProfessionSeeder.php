@@ -14,7 +14,12 @@ class ProfessionSeeder extends Seeder
     public function run()
     {
         Profession::create([
-            'title' => 'Desarrollador Back-End'
+            'title' => 'Desarrollador Back-End',
+            'description' => 'El mejor',
+            'education_level' => 'bachillerato',
+            'salary' => '2000€',
+            'sector' => 'salud',
+            'experience_required' => 5,
         ]);
         Profession::create([
             'title' => 'Desarrollador Front-End'
@@ -23,6 +28,9 @@ class ProfessionSeeder extends Seeder
             'title' => 'Diseñador web'
         ]);
 
-        factory(Profession::class, 17)->create();
+        factory(Profession::class, 100)->create();
+
+        
+
     }
 }
