@@ -13,6 +13,8 @@ class ProfessionController extends Controller
         return view('professions.index', [
             'professions' => Profession::withCount('profiles')->orderBy('title')->get(),
             'sortable' => $sortable,
+            'professions' => Profession::orderBy('title')->get(),
+            'checkedProfessions' => collect(request('professions')),
         ]);
     }
 
@@ -23,5 +25,14 @@ class ProfessionController extends Controller
         $profession->delete();
 
         return redirect()->route('profession.index');
+    }
+
+    protected function form($view, Profession $profession)
+    {
+        return view($view, [
+            'professions' => Profession::orderBy('title', 'ASC')->get(),
+            
+            
+        ]);
     }
 }

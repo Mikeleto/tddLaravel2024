@@ -27,4 +27,14 @@ class UserFilter extends QueryFilter
 
         $query->orderBy($this->getColumnName($column), $direction);
     }
+
+    public function professions($query, $professions)
+    {
+        $subquery = DB::table('user_profiles AS p')
+            ->selectRaw('COUNT(p.id)')
+            ->whereColumn('p.user_id', 'users.id')
+            ->whereIn('profession_id', $professions);
+
+        $query->whereQuery($subquery, count($professions));
+    }
 }

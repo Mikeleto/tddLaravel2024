@@ -6,6 +6,25 @@
     <div class="d-flex justify-content-between align-items-end mb-3">
         <h1 class="pb-1">Listado de profesiones</h1>
     </div>
+    <form method="get" >
+<div class="dropdown">
+    <button type="button" class="btn btn-secondary btn-sm btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Profesiones
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="width: 100%; max-height: 200px; overflow-y: auto; text-align: left;">
+        @foreach($professions as $profession)
+            <div class="form-check">
+                <input name="professions[]" type="checkbox" class="form-check-input"
+                       id="profession_{{ $profession->id }}" value="{{ $profession->id }}"
+                        {{ $checkedProfessions->contains($profession->id) ? 'checked' : '' }}
+                >
+                <label class="form-check-label" for="profession_{{ $profession->id }}">{{ $profession->title }}</label>
+            </div>
+        @endforeach
+    </div>
+</div>
+<button type="submit" class="btn btn-sm btn-primary">Filtrar</button>
+</form>
 
     <table class="table">
         <thead class="thead-dark">
