@@ -17,7 +17,7 @@ class ProfessionSeeder extends Seeder
             'title' => 'Desarrollador Back-End',
             'description' => 'El mejor',
             'education_level' => 'bachillerato',
-            'salary' => '2000€',
+            'salary' => 2000,
             'sector' => 'salud',
             'experience_required' => 5,
         ]);
